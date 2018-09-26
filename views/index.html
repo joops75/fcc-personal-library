@@ -44,7 +44,7 @@
       <form action="" method="post" id="commentTest" class="border">
         <h4>Test post to /api/books/{bookid}</h4>
         BookId to comment on:<br>
-        <input type="text" name="id" value="" id="idinputtest"><br>
+        <input type="text" name="_id" value="" id="idinputtest"><br>
         Comment:<br>
         <input type="text" name="comment" value=""><br>
         <input type="submit" value="Submit">
@@ -53,7 +53,7 @@
     <hr style='margin: 50px'>
     <div id='sampleui'>
       <h2 style="text-align: left">Sample Front-End:</h2>
-      <form id="newBookForm" class="border">
+      <form id="newBookForm" class="border" action="/api/books" method="post">
         <input type="text" id="bookTitleToAdd" name="title" placeholder="New Book Title" style="width: 295px">
         <button type="submit" value="Submit" id="newBook">Submit New Book!</button>
       </form>
