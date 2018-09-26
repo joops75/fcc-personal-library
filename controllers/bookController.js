@@ -4,6 +4,7 @@ module.exports = class {
     postBook(req, res) {
         //response will contain new book object including at least _id and title
         const { title } = req.body;
+        if (!title) return res.send('no title given');
         Book.create({ title }, (err, doc) => {
             if (err) throw err;
             res.send(doc);
@@ -51,7 +52,6 @@ module.exports = class {
         //if successful response will be 'complete delete successful'
         Book.deleteMany({}, (err, docs) => {
             if (err) return res.send('complete delete unsuccessful');
-            if (!docs.n) return res.send('no books to delete');
             res.send('complete delete successful');
         })
     }
