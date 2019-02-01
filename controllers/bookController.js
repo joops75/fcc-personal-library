@@ -24,7 +24,7 @@ module.exports = class {
         //json res format: {"_id": bookid, "title": book_title, "comments": [comment,comment,...]}
         const { _id } = req.params;
         Book.findById(_id, (err, doc) => {
-            if (err) return res.send('no book exists');
+            if (err || !doc) return res.send('no book exists');
             res.send(doc);
         });
     }
